@@ -1,0 +1,7 @@
+FROM redis:7.2.4
+
+MAINTAINER "Lohan Petermann <lohanpetermann@hotmail.com>"
+
+EXPOSE 6379
+
+CMD ["redis-server"]
