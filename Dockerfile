@@ -1,16 +1,15 @@
-FROM ubuntu:20.04
+FROM python:3.11-alpine
 
 MAINTAINER "Lohan Petermann <lohanpetermann@hotmail.com>"
 
 WORKDIR /app
 
-COPY giropops-senhas ./
-
-RUN apt-get update && apt-get install pip curl -y
+COPY app.py .
+COPY requirements.txt .
+COPY static static/
+COPY templates templates/
 
 RUN pip install --no-cache-dir -r requirements.txt
-
-RUN apt-get install telnet vim -y
 
 ENV REDIS_HOST=172.17.0.2
 
